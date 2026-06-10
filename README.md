@@ -16,7 +16,17 @@ Leave Management System.
 
 | Name | Role | Assigned Task |
 |---|---|---|
-| Luke Moran | Frontend Lead |Design Front End |
+| Luke Moran | Frontend Lead |Task: Frontend Planning Session
+
+Now that the design has been chosen, use this meeting to:
+
+1. Review the design as a team
+2. Break the design down into individual screens and components
+3. Assign a task to each frontend developer
+4. Update the /frontend README with the task assignments
+5. Create the feature branches for each task off the frontend branch
+
+Report back to me with your task breakdown once the meeting is done. |
 | Zimi Vuza | Frontend Developer | |
 | Aiden Mc Carter | Frontend Developer | |
 | Uyathandwa Vuza | Frontend Developer | |
