@@ -1,19 +1,35 @@
 # LeaveFlow — Backend
 
-**Module:** SD-WM01 
+**Module:** SD-WM01 / SD-WM02
 **Lead:** Nandipha Tazvivinga
-**Team:** Phila Mchunu, Simphiwe Mngomezulu, Lawson Mpofu, 
+**Team:** Phila Mchunu, Simphiwe Mngomezulu, Lawson Mpofu,
 Khabir Rampersad, Asande Shange
 
 ---
 
 ## Overview
-This folder contains all backend code for the LeaveFlow 
+This folder contains all backend code for the LeaveFlow
 Leave Management System.
 
 ---
 
+## Current Task — Backend Planning Session
+Now that the design has been chosen, Nandipha Tazvivinga must 
+lead the team through the following steps:
+
+- [ ] Review the chosen design to understand what the backend needs to support
+- [ ] Break the system down into backend modules
+- [ ] Assign a module to each backend developer
+- [ ] Update the Task Assignments table below with the assignments
+- [ ] Create a feature branch for each task off the `backend` branch
+
+> Report back to Aiden Brown with the final task breakdown.
+
+---
+
 ## Team & Task Assignments
+> Backend Lead: fill in the Assigned Task column after
+> the planning session.
 
 | Name | Role | Assigned Task |
 |---|---|---|
@@ -39,9 +55,3 @@ Leave Management System.
 ---
 
 ## Folder Structure
-/backend
-├── /api
-├── /models
-├── /views
-├── /controllers
-└── /config
