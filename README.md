@@ -1,6 +1,6 @@
 # LeaveFlow — Frontend
 
-**Module:** SD-WM01 / SD-WM02
+**Module:** SD-WM01 
 **Lead:** Luke Moran
 **Team:** Zimi Vuza, Aiden Mc Carter, Uyathandwa Vuza, Owen Meiring
 
