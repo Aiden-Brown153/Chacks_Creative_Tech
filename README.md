@@ -1,2 +1,8 @@
-# Chacks_Creative_Tech
-This is going to be the main driving force when completing the task
+main
+├── frontend                          ← Frontend Lead oversees all merges here
+│   ├── feature/fe-task-1
+│   ├── feature/fe-task-2
+│   ├── feature/fe-task-3
+│   ├── feature/fe-task-4
+│   └── feature/fe-task-5
+
