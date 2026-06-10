@@ -16,11 +16,11 @@ Leave Management System.
 
 | Name | Role | 
 |---|---|---|
-| Luke Moran | Frontend Lead |
-| Zimi Vuza | Frontend Developer | 
-| Aiden Mc Carter | Frontend Developer | 
-| Uyathandwa Vuza | Frontend Developer | 
-| Owen Meiring | Frontend Developer | 
+| Luke Moran | Frontend Lead ||
+| Zimi Vuza | Frontend Developer | |
+| Aiden Mc Carter | Frontend Developer | |
+| Uyathandwa Vuza | Frontend Developer | |
+| Owen Meiring | Frontend Developer | |
 
 ---
 
