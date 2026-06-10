@@ -1,22 +1,38 @@
 # LeaveFlow — Frontend
 
-**Module:** SD-WM01 
+**Module:** SD-WM01 / SD-WM02
 **Lead:** Luke Moran
 **Team:** Zimi Vuza, Aiden Mc Carter, Uyathandwa Vuza, Owen Meiring
 
 ---
 
 ## Overview
-This folder contains all frontend code for the LeaveFlow 
+This folder contains all frontend code for the LeaveFlow
 Leave Management System.
 
 ---
 
-## Team & Task Assignments
+## Current Task — Frontend Planning Session
+Now that the design has been chosen, Luke Moran must lead 
+the team through the following steps:
 
-| Name | Role | 
+- [ ] Review the chosen design as a team
+- [ ] Break the design down into individual screens and components
+- [ ] Assign a task to each frontend developer
+- [ ] Update the Task Assignments table below with the assignments
+- [ ] Create a feature branch for each task off the `frontend` branch
+
+> Report back to Aiden Brown with the final task breakdown.
+
+---
+
+## Team & Task Assignments
+> Frontend Lead: fill in the Assigned Task column after 
+> the planning session.
+
+| Name | Role | Assigned Task |
 |---|---|---|
-| Luke Moran | Frontend Lead ||
+| Luke Moran | Frontend Lead | |
 | Zimi Vuza | Frontend Developer | |
 | Aiden Mc Carter | Frontend Developer | |
 | Uyathandwa Vuza | Frontend Developer | |
@@ -35,8 +51,3 @@ Leave Management System.
 ---
 
 ## Folder Structure
-/frontend
-├── /pages
-├── /components
-├── /styles
-└── /assets
