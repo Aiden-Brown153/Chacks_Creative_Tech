@@ -14,13 +14,13 @@ Leave Management System.
 
 ## Team & Task Assignments
 
-| Name | Role | Assigned Task |
+| Name | Role | 
 |---|---|---|
 | Luke Moran | Frontend Lead |
-| Zimi Vuza | Frontend Developer | |
-| Aiden Mc Carter | Frontend Developer | |
-| Uyathandwa Vuza | Frontend Developer | |
-| Owen Meiring | Frontend Developer | |
+| Zimi Vuza | Frontend Developer | 
+| Aiden Mc Carter | Frontend Developer | 
+| Uyathandwa Vuza | Frontend Developer | 
+| Owen Meiring | Frontend Developer | 
 
 ---
 
