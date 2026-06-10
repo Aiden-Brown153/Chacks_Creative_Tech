@@ -48,7 +48,7 @@ requests, manage user accounts, and maintain leave records.
 
 ## Repository Structure
 leave-management-sdwm01/
-|--/frontend
-|--/backend
-|--/docs
-|__Readme.md
+|--/frontend|
+|--/backend|
+|--/docs|
+|__Readme.md|
