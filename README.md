@@ -1,8 +1,42 @@
-main
-├── frontend                          ← Frontend Lead oversees all merges here
-│   ├── feature/fe-task-1
-│   ├── feature/fe-task-2
-│   ├── feature/fe-task-3
-│   ├── feature/fe-task-4
-│   └── feature/fe-task-5
+# LeaveFlow — Frontend
 
+**Module:** SD-WM01 / SD-WM02
+**Lead:** Luke Moran
+**Team:** Zimi Vuza, Aiden Mc Carter, Uyathandwa Vuza, Owen Meiring
+
+---
+
+## Overview
+This folder contains all frontend code for the LeaveFlow 
+Leave Management System.
+
+---
+
+## Team & Task Assignments
+
+| Name | Role | Assigned Task |
+|---|---|---|
+| Luke Moran | Frontend Lead | |
+| Zimi Vuza | Frontend Developer | |
+| Aiden Mc Carter | Frontend Developer | |
+| Uyathandwa Vuza | Frontend Developer | |
+| Owen Meiring | Frontend Developer | |
+
+---
+
+## Technology Stack
+
+| Area | Technology |
+|---|---|
+| Markup | HTML |
+| Styling | CSS |
+| Design Reference | Figma |
+
+---
+
+## Folder Structure
+/frontend
+├── /pages
+├── /components
+├── /styles
+└── /assets
