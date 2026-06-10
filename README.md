@@ -16,7 +16,7 @@ Leave Management System.
 
 | Name | Role | Assigned Task |
 |---|---|---|
-| Luke Moran | Frontend Lead | |
+| Luke Moran | Frontend Lead |Design Front End |
 | Zimi Vuza | Frontend Developer | |
 | Aiden Mc Carter | Frontend Developer | |
 | Uyathandwa Vuza | Frontend Developer | |
