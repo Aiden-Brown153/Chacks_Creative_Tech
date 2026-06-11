@@ -35,7 +35,7 @@ lead the team through the following steps:
 |---|---|---|
 | Nandipha Tazvivinga | Backend Lead | Notifications and Alert|
 | Phila Mchunu | Backend Developer | Employee Profile Management |
-| Simphiwe Mngomezulu | Backend Developer | |
+| Simphiwe Mngomezulu | Backend Developer | Approval Workflow |
 | Lawson Mpofu | Backend Developer | Data Base & API Layer |
 | Khabir Rampersad | Backend Developer | |
 | Asande Shange | Backend Developer |Reporting and Analytics |
