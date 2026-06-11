@@ -33,10 +33,10 @@ lead the team through the following steps:
 
 | Name | Role | Assigned Task |
 |---|---|---|
-| Nandipha Tazvivinga | Backend Lead | Notifications and Alerts |
+| Nandipha Tazvivinga | Backend Lead | Notifications and Alert
 | Phila Mchunu | Backend Developer |Employee Profile Management |
 | Simphiwe Mngomezulu | Backend Developer | |
-| Lawson Mpofu | Backend Developer | |
+| Lawson Mpofu | Backend Developer |Data Base & API Layer |
 | Khabir Rampersad | Backend Developer | |
 | Asande Shange | Backend Developer |Reporting and Analytics |
 
