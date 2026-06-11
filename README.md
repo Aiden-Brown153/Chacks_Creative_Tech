@@ -37,7 +37,7 @@ lead the team through the following steps:
 | Phila Mchunu | Backend Developer | Employee Profile Management |
 | Simphiwe Mngomezulu | Backend Developer | Approval Workflow |
 | Lawson Mpofu | Backend Developer | Data Base & API Layer |
-| Khabir Rampersad | Backend Developer | |
+| Khabir Rampersad | Backend Developer |Handling Leave Requests |
 | Asande Shange | Backend Developer |Reporting and Analytics |
 
 ---
