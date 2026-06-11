@@ -16,7 +16,7 @@ Leave Management System.
 Now that the design has been chosen, Luke Moran must lead 
 the team through the following steps:
 
-- [ ] Review the chosen design as a team
+- [Completed] Review the chosen design as a team
 - [ ] Break the design down into individual screens and components
 - [ ] Assign a task to each frontend developer
 - [ ] Update the Task Assignments table below with the assignments
@@ -32,7 +32,7 @@ the team through the following steps:
 
 | Name | Role | Assigned Task |
 |---|---|---|
-| Luke Moran | Frontend Lead | |
+| Luke Moran | Frontend Lead |  |
 | Zimi Vuza | Frontend Developer | |
 | Aiden Mc Carter | Frontend Developer | |
 | Uyathandwa Vuza | Frontend Developer | |
