@@ -17,10 +17,10 @@ Leave Management System.
 Now that the design has been chosen, Nandipha Tazvivinga must 
 lead the team through the following steps:
 
-- [ ] Review the chosen design to understand what the backend needs to support
-- [ ] Break the system down into backend modules
-- [ ] Assign a module to each backend developer
-- [ ] Update the Task Assignments table below with the assignments
+- [x] Review the chosen design to understand what the backend needs to support
+- [x] Break the system down into backend modules
+- [x] Assign a module to each backend developer
+- [x] Update the Task Assignments table below with the assignments
 - [ ] Create a feature branch for each task off the `backend` branch
 
 > Report back to Aiden Brown with the final task breakdown.
