@@ -17,8 +17,8 @@ Now that the design has been chosen, Luke Moran must lead
 the team through the following steps:
 
 - [Completed] Review the chosen design as a team
-- [ ] Break the design down into individual screens and components
-- [ ] Assign a task to each frontend developer
+- [ompleted] Break the design down into individual screens and components
+- [Completed] Assign a task to each frontend developer
 - [ ] Update the Task Assignments table below with the assignments
 - [ ] Create a feature branch for each task off the `frontend` branch
 
