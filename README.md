@@ -131,8 +131,8 @@ Luke Moran and Nandipha Tazvivinga (Backend Lead) coordinate directly during the
 
 | Dates | Task |
 |---|---|
-| 11–13 June | Confirm screen assignments, create feature branches, set up folder structure |
-| 14–20 June | Complete screen builds, commit to feature branches, open pull requests |
+| 11–12 June | Confirm screen assignments, create feature branches, set up folder structure |
+| 15–20 June | Complete screen builds, commit to feature branches, open pull requests |
 | 14–22 June | Integration with backend API (connect screens to live endpoints) |
 | 23–25 June | Testing, fixes, and final commits |
 | 26–27 June | Final merge to `main`, deployment preparation |
