@@ -17,7 +17,7 @@ This folder contains all frontend code for the LeaveFlow Leave Management System
 - [x] Review the chosen design as a team
 - [x] Break the design down into individual screens and components
 - [x] Assign a task to each frontend developer
-- [ ] Update the Task Assignments table below with final screen assignments
+- [x] Update the Task Assignments table below with final screen assignments
 - [ ] Create a feature branch for each assigned screen off the `frontend` branch
 - [ ] Build and commit each assigned screen in HTML/CSS
 - [ ] Submit pull request to `frontend` branch for lead review
@@ -30,12 +30,12 @@ This folder contains all frontend code for the LeaveFlow Leave Management System
 
 | Name | Role | Assigned Screen(s) |
 |---|---|---|
-| Luke Moran | Frontend Lead | Code review, branch management, and screen TBC |
-| Zimi Vuza | Frontend Developer | TBC |
-| Aiden Mc Carter | Frontend Developer | TBC |
-| Uyathandwa Vuza | Frontend Developer | TBC |
-| Owen Meiring | Frontend Developer | TBC — also supports version control |
-
+| Luke Moran | Frontend Lead | Code review, branch management, and screen development |
+| Zimi Vuza | Frontend Developer | Employee Dashboard, Employee Notifications|
+| Aiden Mc Carter | Frontend Developer | Submit Leave Request, Employee Leave History |
+| Uyathandwa Vuza | Frontend Developer | Empployee Balances, Employee Calender |
+| Owen Meiring | Frontend Developer | no contact |
+| Aiden Brown| Inbetween | Github, Employee Profile and Settings |
 ---
 
 ## Technology Stack
@@ -58,6 +58,7 @@ frontend/
 ```
 
 > Each developer creates their screen folder on their own feature branch. The exact folder names are determined by Luke Moran once screen assignments are finalised from the Figma prototype.
+> Each Screen in Named. Folders/files should reflect that name
 
 ---
 
