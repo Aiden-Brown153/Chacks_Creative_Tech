@@ -30,10 +30,10 @@ This folder contains all frontend code for the LeaveFlow Leave Management System
 
 | Name | Role | Assigned Screen(s) |
 |---|---|---|
-| Luke Moran | Frontend Lead | Code review, branch management, and screen development |
-| Zimi Vuza | Frontend Developer | Employee Dashboard, Employee Notifications|
-| Aiden Mc Carter | Frontend Developer | Submit Leave Request, Employee Leave History |
-| Uyathandwa Vuza | Frontend Developer | Empployee Balances, Employee Calender |
+| Luke Moran | Frontend Lead | Code review, branch management, and screen development, Employee Login, Employee SignUp, HR Login, HR Dashboard, HR Notifications, HR Records  |
+| Zimi Vuza | Frontend Developer | Employee Dashboard, Employee Notifications, Review Accounts|
+| Aiden Mc Carter | Frontend Developer | Submit Leave Request, Employee Leave History, Leave Requests |
+| Uyathandwa Vuza | Frontend Developer | Empployee Balances, Employee Calender, Reports, HR Profile and Settings |
 | Owen Meiring | Frontend Developer | no contact |
 | Aiden Brown| Inbetween | Github, Employee Profile and Settings |
 ---
