@@ -3,8 +3,8 @@
 A web-based Leave Management System built as part of a Work Integrated Learning (WIL) programme at Chacks Creative Technologies.
 
 **Deadline:** 30 June 2026
-**Supervisor:** Casper Swanepoel
-**Team Lead:** Aiden Mc Carter
+**Supervisor:** Siphihle Dlamini
+**Team Lead:** Aiden Brown
 
 ## Team Structure
 
