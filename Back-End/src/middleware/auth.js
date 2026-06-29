@@ -50,5 +50,52 @@ function requireAuth(req, res, next) {
       // If either check fails, this line throws an error, which is why it's
       // wrapped in a try/catch.
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    }
+    
+    // Make the decoded info (id, role, email) available to every controller
+    // function that runs after this one, for the lifetime of this request.
+    req.user = decoded;
+
+    // Tell Express "this checkpoint passed, continue to the next function in
+    // line" (the actual route handler).
+    next();
+  } catch (err) {
+    // Covers both "token is garbage/forged" and "token has expired."
+    return res.status(401).json({ message: 'Invalid or expired token' });
+  }
 }
+
+/**
+ * requireRole
+ * -----------
+ * A second, optional checkpoint that runs AFTER requireAuth. While
+ * requireAuth only checks "are you logged in at all," this checks "are you
+ * logged in AS THE RIGHT KIND OF USER for this specific action."
+ *
+ * Written as a function that RETURNS a function (a "higher-order function")
+ * so it can be reused flexibly, e.g.:
+ *   requireRole('hr_manager')              — only HR managers allowed
+ *   requireRole('hr_manager', 'employee')   — either role allowed
+ *
+ * Usage example (seen in employeeRoutes.js / leaveRoutes.js):
+ *   router.patch('/:id', requireAuth, requireRole('hr_manager'), someHandler);
+ */
+function requireRole(...allowedRoles) {
+  // "...allowedRoles" (rest parameters) collects every argument passed into
+  // requireRole(...) into a single array, however many there are.
+
+  return (req, res, next) => {
+    // req.user only exists because requireAuth ran first and set it — this
+    // is why requireRole must always be used AFTER requireAuth in a route,
+    // never on its own.
+    if (!req.user || !allowedRoles.includes(req.user.role)) {
+      // 403 = "we know who you are, but you're not allowed to do this" —
+      // distinct from 401 ("we don't know who you are at all").
+      return res.status(403).json({ message: 'You do not have permission to do that' });
+    }
+    next();
+  };
+}
+
+module.exports = { requireAuth, requireRole };
+// module.exports makes these two functions importable from other files, e.g.
+// const { requireAuth, requireRole } = require('../middleware/auth');
