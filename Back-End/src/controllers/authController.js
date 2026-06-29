@@ -60,4 +60,70 @@ function toPublicUser(employee) {
 
 /**
  * signup - POST /api/auth/signup
+ * --------------------------------
+ * Expected request body: {fullName, email, password, employeeCode, department, role? }
+ * 
+ * Step by Step:
+ *  1. Check the required fields were actually sent.
+ *  2. Check no account already exists wit that email.
+ *  3. Hash the password (never store it as plain text).
+ *  4. Insert the new row into the database.
+ *  5. Immediately log the new user in by issuing a token, so they don't
+ *     have to sign up then seperately log in straight after.
+ */
+
+
+async function signup(req, res) {
+    // Destructuring: pulls these named fields out of the JSON body the
+    // frontend sent.
+    const {full_name, email, password, employeeCode, department, role} = req.body:
+
+    // Basic validation - if any truly required field is missing, stop here
+    // rather than letting a confusing database error happen later.
+    if (!full_name || !email || !password) {
+        return res.status(400).json({message: 'fullName, email and password are required' });
+    }
+
+    try {
+        // Look up whether an account with this email already exists. The "$1"
+        // is a placeholder -pg safely inserts the email calue in place of $1.
+        // This pattern ("paremetrised query") is critical: it prevents SQL
+        // injection attacks, where a malicious user could otherwise tupe SQL
+        // code into email field itself.
+        const existing = await pool.query('SELECT id FROM employees WHERE email =$1', [email]);
+
+        if (existing.rows.length > 0) {
+            // 409 = "Conflict" - the standard HTTP code for "this already exists."
+            return res.status(409).json({meassage: 'An accountwith that email already exists'});
+        }
+
+        // Turn the plain-text password into a secure hash before it ever
+        // touches the databse.
+        const result = await pool.query(
+        `INSERT INTO employees (full_name, email, employee_code, password_hash, department, role)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         RETURNING *`,
+         [fullName, email, employeeCode || null, passwordHash, department || null, safeRole]
+        );
+
+        const employee = result.row[0]; // the newly created row
+        const token = signToken(employee);
+
+        // 201 = "Created" - the correct HTTP code for successfully creating a
+        // new resource (as opposed to 200, generic "OK").
+        res.status(201).json({ token, user: toPublicUser(employee) });
+    }catch (err) {
+     // Anything unexpected (database connection drop, etc.) lands here. We
+     // log the real error for our own debugging, but send back a vague, safe
+     // message tot the user - never expose raw database errors to the 
+     // frontend, as they can leak internal details.
+     console.error('Signup error:', err);
+     res.status(500).json({ message: 'Could not create account' });
+    }
+}
+
+/**
+ * login - POST /api/auth/login
+ * ----------------------------
+ * Expected request body: { email, password }
  */
