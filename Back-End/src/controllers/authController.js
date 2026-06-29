@@ -1,5 +1,6 @@
 // =========================================================================
 // LEAVEFLOW -AUTH CONTROLLER
+// Author: Aiden Brown | Module: Authentication & User Management
 // =========================================================================
 // A "controller" holds the actual business logic for a route - what should
 // happen step by step, when a particular request comes in. This file
@@ -26,7 +27,6 @@ const SALT_ROUNDS =10;
  * creates a JWT for a given employee row. Keeping this in one place means
  * both signup and login create tokens in exactly the same, consistent way.
  */
-
 function signToken(employee) {
     return jwt.sign(
         // The "payload" - information baked into the token itself. Deliberately
@@ -47,7 +47,6 @@ function signToken(employee) {
  * place that decides what a "user object" looks like to the frontend, which
  * makes it much harder to accidentally leak something sensitive later.
  */
-
 function toPublicUser(employee) {
     return {
         id : employee.id,
@@ -71,8 +70,6 @@ function toPublicUser(employee) {
  *  5. Immediately log the new user in by issuing a token, so they don't
  *     have to sign up then seperately log in straight after.
  */
-
-
 async function signup(req, res) {
     // Destructuring: pulls these named fields out of the JSON body the
     // frontend sent.
@@ -99,11 +96,21 @@ async function signup(req, res) {
 
         // Turn the plain-text password into a secure hash before it ever
         // touches the databse.
-        const result = await pool.query(
-        `INSERT INTO employees (full_name, email, employee_code, password_hash, department, role)
-         VALUES ($1, $2, $3, $4, $5, $6)
-         RETURNING *`,
-         [fullName, email, employeeCode || null, passwordHash, department || null, safeRole]
+        const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
+
+        // Defensive check: even though the frontend signup form only ever sends
+            // "employee", this guards against anyone calling this endpoint directly
+            // (e.g. via curl/Postman) and trying to grant themselves hr_manager
+            // access by passing an unexpected role value.
+            const safeRole = role === 'hr_manager' ? 'hr_manager' : 'employee';
+        
+            // Insert the new employee row. "RETURNING *" tells Postgres to hand
+            // back the full new row (including the auto-generated id) immediately.
+            const result = await pool.query(
+            `INSERT INTO employees (full_name, email, employee_code, password_hash, department, role)
+             VALUES ($1, $2, $3, $4, $5, $6)
+             RETURNING *`,
+            [fullName, email, employeeCode || null, passwordHash, department || null, safeRole]
         );
 
         const employee = result.row[0]; // the newly created row
@@ -126,4 +133,47 @@ async function signup(req, res) {
  * login - POST /api/auth/login
  * ----------------------------
  * Expected request body: { email, password }
+ * 
+ * Step by step:
+ *  1. Check both fields were sent.
+ *  2. Look up the account by email.
+ *  3. Compare the submitted password against the stored hash.
+ *  4. If it matches, issues a token.
  */
+async function login(req, res) {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ message: 'email and password are required'});
+    }
+
+    try{
+        const result = await pool.query('SELECT * FROM employees WHERE email = $1', [email]);
+        const employee = result.row[0]; // undefined if no match was found
+
+        if (!employee) {
+            // Deliberately the SAME error message as "wrong password" below. If
+            // we said "no account with that email" specifically, an attacker
+            // could use that to figure out which emails are registered. Giving an
+            // identical, vague message for both cases is a standard security
+            // practice
+            return res.status(401).json({ message: 'Invalid email or password'});
+        }
+
+        // bcrypt.compare takes the plain password the user just typed and
+        // checks it against the stored hash — this is the "un-reversible but
+        // checkable" property of hashing mentioned above.
+        const valid = await bcrypt.compare(password, employee.password_hash);
+        if (!valid) {
+            return res.status(401).json({ message: 'Invalid email or password' });
+        }
+
+        const token = signToken(employee);
+        res.json({ oken, user: toPublicUser(employee) });
+    } catch (err) {
+        console.error('Login error', err);
+        res.status(500).json({ message: 'Login failed' });
+    }
+}
+
+module.exports = { signup, login };
