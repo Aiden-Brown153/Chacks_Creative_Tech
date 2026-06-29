@@ -73,7 +73,7 @@ function toPublicUser(employee) {
 async function signup(req, res) {
     // Destructuring: pulls these named fields out of the JSON body the
     // frontend sent.
-    const {full_name, email, password, employeeCode, department, role} = req.body:
+    const {full_name, email, password, employeeCode, department, role} = req.body;
 
     // Basic validation - if any truly required field is missing, stop here
     // rather than letting a confusing database error happen later.
