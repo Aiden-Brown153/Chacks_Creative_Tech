@@ -1,161 +1,122 @@
-const pool = require('../config/db');
+ const pool = require('../config/db');
 
-// GET /api/reports/leave-summary
-// Must give HR a general overview of leave data.
+// Get summary of leave requests
 async function getLeaveSummary(req, res) {
   try {
-    const byStatus = await pool.query(
+    const status = await pool.query(
       `SELECT status, COUNT(*) AS count
        FROM leave_requests
        GROUP BY status`
     );
 
-    const byType = await pool.query(
+    const types = await pool.query(
       `SELECT leave_type, COUNT(*) AS count
        FROM leave_requests
        GROUP BY leave_type`
     );
 
-    const totalEmployees = await pool.query(
+    const employees = await pool.query(
       `SELECT COUNT(*) AS count
        FROM employees
        WHERE role = 'employee'`
     );
 
     res.json({
-      byStatus: byStatus.rows,
-      byType: byType.rows,
-      totalEmployees: Number(totalEmployees.rows[0].count),
+      status: status.rows,
+      types: types.rows,
+      employees: Number(employees.rows[0].count)
     });
-  } catch (err) {
-    console.error("Leave summary error:", err);
+
+  } catch(error) {
     res.status(500).json({
-      message: "Could not build report"
+      message: "Could not get report"
     });
   }
 }
 
-// GET /api/reports/department
-// Shows leave requests by department.
+
+// Get leave count by department
 async function getDepartmentReport(req, res) {
   try {
     const result = await pool.query(
-      `SELECT
-          employees.department,
-          COUNT(leave_requests.id) AS leave_count
+      `SELECT employees.department,
+       COUNT(leave_requests.id) AS total_leave
        FROM employees
        JOIN leave_requests
        ON employees.id = leave_requests.employee_id
-       GROUP BY employees.department
-       ORDER BY leave_count DESC`
+       GROUP BY employees.department`
     );
 
     res.json(result.rows);
-  } catch (err) {
-    console.error("Department report error:", err);
+
+  } catch(error) {
     res.status(500).json({
-      message: "Could not build department report"
+      message: "Could not get department report"
     });
   }
 }
 
-// GET /api/reports/approval-trends
-// Shows approvals and rejections over time.
+
+// Get approval report
 async function getApprovalTrend(req, res) {
   try {
     const result = await pool.query(
-      `SELECT
-          DATE_TRUNC('month', decided_at) AS month,
-          COUNT(*) FILTER (WHERE status = 'approved') AS approved,
-          COUNT(*) FILTER (WHERE status = 'rejected') AS rejected
+      `SELECT status, COUNT(*) AS total
        FROM leave_requests
-       WHERE decided_at IS NOT NULL
-       GROUP BY month
-       ORDER BY month`
+       WHERE status != 'pending'
+       GROUP BY status`
     );
 
     res.json(result.rows);
-  } catch (err) {
-    console.error("Approval trend error:", err);
+
+  } catch(error) {
     res.status(500).json({
-      message: "Could not build approval trend report"
+      message: "Could not get approval report"
     });
   }
 }
 
-// GET /api/reports/employee/:id
-// Returns one employee's leave history.
+
+// Get employee leave history
 async function getEmployeeLeaveHistory(req, res) {
   const { id } = req.params;
 
   try {
     const result = await pool.query(
-      `SELECT
-          employees.full_name,
-          employees.department,
-          leave_requests.leave_type,
-          leave_requests.start_date,
-          leave_requests.end_date,
-          leave_requests.status,
-          leave_requests.reason,
-          leave_requests.submitted_at,
-          leave_requests.decided_at
-       FROM employees
-       JOIN leave_requests
-       ON employees.id = leave_requests.employee_id
-       WHERE employees.id = $1
-       ORDER BY leave_requests.submitted_at DESC`,
+      `SELECT *
+       FROM leave_requests
+       WHERE employee_id = $1`,
       [id]
     );
 
-    if (result.rows.length === 0) {
-      return res.status(404).json({
-        message: "No leave history found"
-      });
-    }
-
     res.json(result.rows);
-  } catch (err) {
-    console.error("Employee history error:", err);
+
+  } catch(error) {
     res.status(500).json({
-      message: "Could not load employee history"
+      message: "Could not get employee history"
     });
   }
 }
 
-// Dashboard statistics
+
+// Get dashboard statistics
 async function getDashboardStats(req, res) {
   try {
-    const pending = await pool.query(
-      `SELECT COUNT(*) AS count
+    const result = await pool.query(
+      `SELECT status, COUNT(*) AS total
        FROM leave_requests
-       WHERE status = 'pending'`
+       GROUP BY status`
     );
 
-    const approved = await pool.query(
-      `SELECT COUNT(*) AS count
-       FROM leave_requests
-       WHERE status = 'approved'`
-    );
+    res.json(result.rows);
 
-    const rejected = await pool.query(
-      `SELECT COUNT(*) AS count
-       FROM leave_requests
-       WHERE status = 'rejected'`
-    );
-
-    res.json({
-      pending: Number(pending.rows[0].count),
-      approved: Number(approved.rows[0].count),
-      rejected: Number(rejected.rows[0].count)
-    });
-  } catch (err) {
-    console.error("Dashboard stats error:", err);
+  } catch(error) {
     res.status(500).json({
-      message: "Could not load dashboard statistics"
+      message: "Could not load dashboard"
     });
   }
 }
+
 
 module.exports = {
   getLeaveSummary,
