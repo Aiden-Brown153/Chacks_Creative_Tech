@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Leave Requests</title>
+
+<style>
+/* ==========================================
+   GLOBAL STYLES
+========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #EA770C 0%, #AE3D00 100%);
+}
+
+/* ==========================================
+   DASHBOARD LAYOUT
+========================================== */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+.sidebar {
+  width: 356px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background: #223656;
+  color: white;
+  position: relative;
+}
+
+/* ==========================================
+   CONTENT AREA
+========================================== */
+.content {
+  flex: 1;
+  background: white;
+  margin: 31px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+}
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- ==========================================
+       SIDEBAR
+  ========================================== -->
+  <aside class="sidebar">
+
+    <!-- COMPANY LOGO GOES HERE -->
+    <div style="position:absolute; top:20px; left:20px;">
+      <img src="images/logo-placeholder.png" alt="Company Logo" width="100">
+    </div>
+
+    <!-- Sidebar navigation preserved from Figma export -->
+    <div style="position:absolute; left:137px; top:31px; font-size:30px; font-weight:600;">G-Leave</div>
+    <div style="position:absolute; left:137px; top:65px; font-size:15px;">Leave Management System</div>
+
+    <!-- Example navigation buttons -->
+    <div style="position:absolute; left:23px; top:261px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- Dashboard SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Dashboard</div>
+    </div>
+
+    <div style="position:absolute; left:18px; top:393px; background:#C85605; border-radius:16px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- Review Leave Requests SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Review Leave Requests</div>
+    </div>
+
+    <div style="position:absolute; left:24px; top:333px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- Approve Accounts SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Approve Accounts</div>
+    </div>
+
+    <div style="position:absolute; left:18px; top:461px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- Employee Records SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Employee Records</div>
+    </div>
+
+    <div style="position:absolute; left:18px; top:523px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- Reports SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Reports</div>
+    </div>
+
+    <!-- PROFILE INFORMATION GOES HERE -->
+    <div style="position:absolute; bottom:20px; left:20px; color:white;">
+      <img src="images/profile-placeholder.png" alt="Profile Image" width="60" style="border-radius:50%;">
+      <p>Employee Name</p>
+      <p>email@example.com</p>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       MAIN CONTENT AREA
+  ========================================== -->
+  <main class="content">
+
+    <!-- Page Title -->
+    <div style="position:absolute; left:32px; top:17px; font-size:36px; font-weight:700;">Review Leave Requests</div>
+    <div style="position:absolute; left:32px; top:61px; font-size:20px; font-weight:700; color:rgba(0,0,0,0.62);">
+      Review and take action on employee leave requests
+    </div>
+
+    <!-- Status Cards -->
+    <div style="position:absolute; left:32px; top:85px; width:812px; height:120px;">
+      <div style="position:absolute; left:12px; top:27px; width:185px; height:66px; border-radius:15px; outline:1px solid black;">
+        <div style="position:absolute; left:57px; top:23px; font-size:16px; font-weight:700;">Pending</div>
+      </div>
+      <div style="position:absolute; left:213px; top:27px; width:185px; height:66px; border-radius:15px; background:linear-gradient(180deg,#2865CB 52%,#143265 100%);">
+        <div style="position:absolute; left:52px; top:23px; font-size:16px; font-weight:700; color:white;">Approved</div>
+      </div>
+      <div style="position:absolute; left:414px; top:27px; width:185px; height:66px; border-radius:15px; outline:1px solid black;">
+        <div style="position:absolute; left:55px; top:23px; font-size:16px; font-weight:700;">Rejected</div>
+      </div>
+      <div style="position:absolute; left:615px; top:27px; width:185px; height:66px; border-radius:15px; outline:1px solid black;">
+        <div style="position:absolute; left:40px; top:23px; font-size:16px; font-weight:700;">All Requests</div>
+      </div>
+    </div>
+
+    <!-- Table Headers -->
+    <div style="position:absolute; left:42px; top:219px; font-size:18px; font-weight:700;">Employee</div>
+    <div style="position:absolute; left:211px; top:219px; font-size:18px; font-weight:700;">Leave Type</div>
+
+    <!-- Example Employee Row -->
+    <div style="position:absolute; left:12px; top:266px;">
+      <svg width="57" height="59"><!-- Employee avatar SVG preserved --></svg>
+    </div>
+    <div style="position:absolute; left:69px; top:278px; font-size:10px; font-weight:700;">SpongeBob SquarePants</div>
+
