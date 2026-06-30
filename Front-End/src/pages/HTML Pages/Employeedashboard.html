@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Leave Request</title>
+
+<style>
+/* ==========================================
+   GLOBAL STYLES
+========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #EA770C 0%, #AE3D00 100%);
+}
+
+/* ==========================================
+   DASHBOARD LAYOUT
+========================================== */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+.sidebar {
+  width: 356px;
+  height: 1024px;
+  background: #223656;
+  color: white;
+  position: relative;
+}
+
+/* ==========================================
+   CONTENT AREA
+========================================== */
+.content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- ==========================================
+       SIDEBAR
+  ========================================== -->
+  <aside class="sidebar">
+
+    <!-- COMPANY LOGO GOES HERE -->
+    <div style="position:absolute; top:20px; left:20px;">
+      <img src="images/logo-placeholder.png" alt="Company Logo" width="100">
+    </div>
+
+    <!-- Sidebar navigation preserved -->
+    <div style="position:absolute; left:137px; top:31px; font-size:30px; font-weight:600;">G-Leave</div>
+    <div style="position:absolute; left:137px; top:65px; font-size:15px;">Leave Management System</div>
+
+    <!-- Example navigation buttons -->
+    <div style="position:absolute; left:27px; top:241px; background:#C85605; border-radius:16px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- Dashboard SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Dashboard</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:305px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- Submit Leave SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Submit Leave</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:371px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- My Leave History SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">My Leave History</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:429px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- My Balance SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">My Balance</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:494px; display:inline-flex; align-items:center; gap:13px;">
+      <div><!-- Team Calendar SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Team Calendar</div>
+    </div>
+
+    <!-- PROFILE INFORMATION GOES HERE -->
+    <div style="position:absolute; bottom:20px; left:20px; color:white;">
+      <img src="images/profile-placeholder.png" alt="Profile Image" width="60" style="border-radius:50%;">
+      <p>Employee Name</p>
+      <p>email@example.com</p>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       MAIN CONTENT AREA
+  ========================================== -->
+  <main class="content">
+
+    <!-- Cards from second file -->
+    <div style="width:337px; height:228px; left:369px; top:46px; position:absolute; background:linear-gradient(180deg, white 67%, #F5D7AB 85%, #E59620 100%); border-radius:16px; outline:1px solid black;">
+      <div style="left:131px; top:15px; position:absolute; font-size:24px; font-weight:700;">Annual Leave</div>
+      <div style="left:188px; top:75px; position:absolute; font-size:40px; font-weight:700; color:#BD4C03;">12</div>
+      <div style="left:131px; top:154px; position:absolute; font-size:20px; font-weight:700;">Days Remaining</div>
+    </div>
+
+    <div style="width:344px; height:228px; left:726px; top:43px; position:absolute; background:linear-gradient(180deg, white 67%, #F5D7AB 85%, #E59620 100%); border-radius:16px; outline:1px solid black;">
+      <div style="left:133px; top:16px; position:absolute; font-size:24px; font-weight:700;">Sick Leave</div>
+      <div style="left:170px; top:75px; position:absolute; font-size:40px; font-weight:700; color:#B84601;">5</div>
+      <div style="left:104px; top:153px; position:absolute; font-size:20px; font-weight:700;">Days Remaining</div>
+    </div>
+
+    <div style="width:342px; height:228px; left:1090px; top:43px; position:absolute; background:linear-gradient(180deg, white 67%, #F5D7AB 85%, #E59620 100%); border-radius:16px; outline:1px solid black;">
+      <div style="left:81px; top:19px; position:absolute; font-size:24px; font-weight:700;">Pending Requests</div>
+      <div style="left:161px; top:77px; position:absolute; font-size:40px; font-weight:700; color:#C35104;">1</div>
+      <div style="left:92px; top:154px; position:absolute; font-size:20px; font-weight:700;">Days Remaining</div>
+    </div>
+
+    <!-- Action buttons -->
+    <div style="width:716px; height:307px; left:374px; top:305px; position:absolute; background:white; border-radius:10px; box-shadow:0px 4px 4px rgba(0,0,0,0.25);">
+      <div style="width:203px; height:203px; left:20px; top:52px; position:absolute; background:#F06801; border-radius:18px; color:white; font-size:24px; font-weight:800; text-align:center; padding-top:156px;">
+        Apply For Leave
+      </div>
+      <div style="width:203px; height:203px; left:256px; top:52px; position:absolute; background:#F06801; border-radius:18px; color:white; font-size:24px; font-weight:800; text-align:center; padding-top:154px;">
+        View Calendar
+      </div>
+      <div style="width:203px; height:203px; left:492px; top:52px; position:absolute; background:#F06801; border-radius:18px; color:white; font-size:24px; font-weight:800; text-align:center; padding-top:154px;">
+        Submit Request
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
