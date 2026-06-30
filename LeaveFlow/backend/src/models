@@ -1,0 +1,18 @@
+-- Employees table: stores user accounts
+CREATE TABLE employees (
+  id SERIAL PRIMARY KEY,                -- Auto-increment ID
+  name VARCHAR(100) NOT NULL,           -- Employee name
+  email VARCHAR(100) UNIQUE NOT NULL,   -- Unique email
+  password VARCHAR(255) NOT NULL,       -- Hashed password
+  role VARCHAR(20) CHECK (role IN ('employee','hr_manager')) -- Role restriction
+);
+
+-- Leave requests table: stores employee leave requests
+CREATE TABLE leave_requests (
+  id SERIAL PRIMARY KEY,                -- Request ID
+  employee_id INT REFERENCES employees(id), -- Link to employee
+  start_date DATE NOT NULL,             -- Leave start
+  end_date DATE NOT NULL,               -- Leave end
+  reason TEXT NOT NULL,                 -- Reason for leave
+  status VARCHAR(20) CHECK (status IN ('pending','approved','rejected','cancelled')) -- Allowed statuses
+);

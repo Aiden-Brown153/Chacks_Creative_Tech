@@ -1,0 +1,11 @@
+// Import Pool from node-postgres (pg) to manage DB connections
+const { Pool } = require('pg');
+
+// Create a new pool using DATABASE_URL from .env file
+// This keeps credentials secure and reusable
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+// Export the pool so other files can query the database
+module.exports = pool;
