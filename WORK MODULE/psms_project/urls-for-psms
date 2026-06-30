@@ -1,6 +1,0 @@
-Admin portal → http://127.0.0.1:8000/admin/
-JWT token obtain → http://127.0.0.1:8000/api/token/
-JWT token refresh → http://127.0.0.1:8000/api/token/refresh/
-JWT token verify → http://127.0.0.1:8000/api/token/verify/
-Employees API → http://127.0.0.1:8000/api/employees/
-Leaves API → http://127.0.0.1:8000/api/leaves/ 
