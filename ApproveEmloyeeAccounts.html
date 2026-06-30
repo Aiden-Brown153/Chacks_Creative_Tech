@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approve Employee Accounts</title>
+
+<style>
+/* ==========================================
+   GLOBAL STYLES
+========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #EA770C 0%, #AE3D00 100%);
+}
+
+/* ==========================================
+   DASHBOARD LAYOUT
+========================================== */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+.sidebar {
+  width: 356px;
+  height: 1024px;
+  background: #223656;
+  color: white;
+  position: relative;
+}
+
+/* ==========================================
+   CONTENT AREA
+========================================== */
+.content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     DASHBOARD LAYOUT
+========================================== -->
+<div class="dashboard">
+
+  <!-- ==========================================
+       SIDEBAR
+  ========================================== -->
+  <aside class="sidebar">
+
+    <!-- COMPANY LOGO -->
+    <div style="position:absolute; top:20px; left:20px;">
+      <img src="images/logo-placeholder.png" alt="Company Logo" width="100" id="companyLogo" name="companyLogo">
+    </div>
+
+    <!-- System Title -->
+    <div style="position:absolute; left:137px; top:31px; font-size:30px; font-weight:600;">G-Leave</div>
+    <div style="position:absolute; left:137px; top:65px; font-size:15px;">Leave Management System</div>
+
+    <!-- Navigation Buttons -->
+    <div style="position:absolute; left:27px; top:241px; display:inline-flex; align-items:center; gap:13px;" id="dashboardBtn">
+      <div><!-- Dashboard SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Dashboard</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:305px; display:inline-flex; align-items:center; gap:13px;" id="approveAccountsBtn">
+      <div><!-- Approve Accounts SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Approve Accounts</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:371px; display:inline-flex; align-items:center; gap:13px;" id="leaveRequestsBtn">
+      <div><!-- Leave Requests SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Leave Requests</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:429px; display:inline-flex; align-items:center; gap:13px;" id="employeeRecordsBtn">
+      <div><!-- Employee Records SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Employee Records</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:494px; display:inline-flex; align-items:center; gap:13px;" id="reportsBtn">
+      <div><!-- Reports SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Reports</div>
+    </div>
+
+    <!-- PROFILE INFORMATION -->
+    <div style="position:absolute; bottom:20px; left:20px; color:white;" id="profileSection">
+      <img src="images/profile-placeholder.png" alt="Profile Image" width="60" style="border-radius:50%;" id="profileImage" name="profileImage">
+      <p id="employeeName" name="employeeName">Employee Name</p>
+      <p id="employeeEmail" name="employeeEmail">email@example.com</p>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       MAIN CONTENT AREA
+  ========================================== -->
+  <main class="content">
+
+    <!-- Panel Container -->
+    <div style="width: 1000px; height: 926px; left: 397px; top: 53px; position: absolute; background: linear-gradient(180deg, #FFFDFD 0%, #D4D4D4 100%); box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.25); border-radius: 50px; border: 5px #B4B2B2 solid" id="approveAccountsPanel"></div>
+
+    <!-- Page Title -->
+    <div style="width: 469px; height: 47px; left: 441px; top: 60px; position: absolute; color: black; font-size: 40px; font-weight:600;" id="approveAccountsTitle">
+      Approve Employee Accounts
+    </div>
+
+    <!-- Example Account Request Card -->
+    <div style="width: 912px; height: 118px; left: 442px; top: 141px; position: absolute; background: white; border-radius: 30px; border: 3px #B0AEAE solid; box-shadow: 10px 4px 4px rgba(0,0,0,0.25);" id="accountCard1">
+      
+      <!-- Employee Info -->
+      <div style="left:30px; top:20px; position:absolute; font-size:22px; font-weight:600;" id="accountName1" name="accountName1">John Doe</div>
+      <div style="left:30px; top:55px; position:absolute; font-size:18px; color:#555;" id="accountEmail1" name="accountEmail1">john.doe@example.com</div>
+      <div style="left:400px; top:20px; position:absolute; font-size:18px; color:#555;" id="accountDate1" name="accountDate1">Requested: 01 Jul 2026</div>
+
+      <!-- Action Buttons -->
+      <!-- Approve Button -->
+      <button style="left:700px; top:35px; position:absolute; background:#2865CB; color:white; padding:10px 20px; border:none; border-radius:10px; font-size:16px; cursor:pointer;" id="approveBtn1" name="approveBtn1">
+        Approve
+      </button>
+
+      <!-- Reject Button -->
+      <button style="left:820px; top:35px; position:absolute; background:#F44336; color:white; padding:10px 20px; border:none; border-radius:10px; font-size:16px; cursor:pointer;" id="rejectBtn1" name="rejectBtn1">
+        Reject
+      </button>
+    </div>
+
+    <!-- Duplicate more account cards below with unique IDs/names for multiple employees -->
+
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Notifications</title>
+
+<style>
+/* ==========================================
+   GLOBAL STYLES
+========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #EA770C 0%, #AE3D00 100%);
+}
+
+/* ==========================================
+   DASHBOARD LAYOUT
+========================================== */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+.sidebar {
+  width: 356px;
+  height: 1024px;
+  background: #223656;
+  color: white;
+  position: relative;
+}
+
+/* ==========================================
+   CONTENT AREA
+========================================== */
+.content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     DASHBOARD LAYOUT
+========================================== -->
+<div class="dashboard">
+
+  <!-- ==========================================
+       SIDEBAR
+  ========================================== -->
+  <aside class="sidebar">
+
+    <!-- COMPANY LOGO GOES HERE -->
+    <div style="position:absolute; top:20px; left:20px;">
+      <img src="images/logo-placeholder.png" alt="Company Logo" width="100" id="companyLogo" name="companyLogo">
+    </div>
+
+    <!-- Sidebar navigation preserved -->
+    <div style="position:absolute; left:137px; top:31px; font-size:30px; font-weight:600;">G-Leave</div>
+    <div style="position:absolute; left:137px; top:65px; font-size:15px;">Leave Management System</div>
+
+    <!-- Example navigation buttons -->
+    <div style="position:absolute; left:27px; top:241px; display:inline-flex; align-items:center; gap:13px;" id="dashboardBtn">
+      <div><!-- Dashboard SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Dashboard</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:305px; display:inline-flex; align-items:center; gap:13px;" id="submitLeaveBtn">
+      <div><!-- Submit Leave SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Submit Leave</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:371px; display:inline-flex; align-items:center; gap:13px;" id="leaveHistoryBtn">
+      <div><!-- My Leave History SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">My Leave History</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:429px; display:inline-flex; align-items:center; gap:13px;" id="balanceBtn">
+      <div><!-- My Balance SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">My Balance</div>
+    </div>
+
+    <div style="position:absolute; left:27px; top:494px; display:inline-flex; align-items:center; gap:13px;" id="teamCalendarBtn">
+      <div><!-- Team Calendar SVG icon --></div>
+      <div style="color:white; font-size:25px; font-weight:600;">Team Calendar</div>
+    </div>
+
+    <!-- PROFILE INFORMATION GOES HERE -->
+    <div style="position:absolute; bottom:20px; left:20px; color:white;" id="profileSection">
+      <img src="images/profile-placeholder.png" alt="Profile Image" width="60" style="border-radius:50%;" id="profileImage" name="profileImage">
+      <p id="employeeName" name="employeeName">Employee Name</p>
+      <p id="employeeEmail" name="employeeEmail">email@example.com</p>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       MAIN CONTENT AREA
+  ========================================== -->
+  <main class="content">
+
+    <!-- Notifications Layout from Figma Export -->
+    <div style="width: 1000px; height: 926px; left: 397px; top: 53px; position: absolute; background: linear-gradient(180deg, #FFFDFD 0%, #D4D4D4 100%); box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.25); border-radius: 50px; border: 5px #B4B2B2 solid" id="notificationsPanel"></div>
+
+    <!-- Notification Cards -->
+    <div style="width: 912px; height: 118px; left: 442px; top: 98px; position: absolute; background: white; border-radius: 30px; border: 5px #B0AEAE solid; box-shadow: 10px 4px 4px rgba(0,0,0,0.25);" id="notificationCard1"></div>
+    <div style="width: 912px; height: 118px; left: 442px; top: 241px; position: absolute; background: white; border-radius: 30px; border: 5px #B0AEAE solid; box-shadow: 10px 5px 4px rgba(0,0,0,0.25);" id="notificationCard2"></div>
+    <div style="width: 912px; height: 118px; left: 441px; top: 371px; position: absolute; background: white; border-radius: 30px; border: 5px #B0AEAE solid; box-shadow: 10px 4px 4px rgba(0,0,0,0.25);" id="notificationCard3"></div>
+    <div style="width: 912px; height: 118px; left: 442px; top: 516px; position: absolute; background: white; border-radius: 30px; border: 5px #B0AEAE solid; box-shadow: 10px 4px 4px rgba(0,0,0,0.25);" id="notificationCard4"></div>
+    <div style="width: 912px; height: 118px; left: 441px; top: 659px; position: absolute; background: white; border-radius: 30px; border: 5px #B0AEAE solid; box-shadow: 10px 4px 4px rgba(0,0,0,0.25);" id="notificationCard5"></div>
+
+    <!-- Notification Messages -->
+    <div style="width: 787px; left: 565px; top: 123px; position: absolute; font-size:28px; font-weight:600;" id="notificationMessage1">
+      Leave application from <span style="color:#3079C8;">10/02-26/02</span> has been denied...
+    </div>
+
+    <div style="width: 744px; left: 557px; top: 261px; position: absolute; font-size:28px; font-weight:600;" id="notificationMessage2">
+      Please meet Mr. Crabs at <span style="color:#3079C8;">10:20</span> for a meeting in the breakroom.
+    </div>
+
+    <div style="width: 744px; left: 559px; top: 402px; position: absolute; font-size:28px; font-weight:600;" id="notificationMessage3">
+      WARNING! Your annual leave will expire by <span style="color:#0088FF;">01/03</span>.
+    </div>
+
+    <div style="width: 744px; left: 555px; top: 540px; position: absolute; font-size:28px; font-weight:600;" id="notificationMessage4">
+      Sick leave for <span style="color:#0088FF;">02/02-03/02</span> has been approved. Please submit medical documentation.
+    </div>
+
+    <div style="width: 744px; left: 567px; top: 682px; position: absolute; font-size:28px; font-weight:600;" id="notificationMessage5">
+      Family responsibility leave has been approved.
+    </div>
+
+    <!-- Dates -->
+
+    <div style="left:1233px; top:182px; position:absolute; font-size:16px; font-weight:600; color:#858585;" id="notificationDate5">05 Feb 2026</div>
+    <div style="left:1232px; top:329px; position:absolute; font-size:16px; font-weight:600; color:#858585;" id="notificationDate6">05 Feb 2026</div>
+    <div style="left:1233px; top:457px; position:absolute; font-size:16px; font-weight:600; color:#858585;" id="notificationDate7">01 Feb 2026</div>
+    <div style="left:1233px; top:605px; position:absolute; font-size:16px; font-weight:600; color:#858585;" id="notificationDate8">31 Jan 2026</div>
+    <div style="left:1233px; top:743px; position:absolute; font-size:16px; font-weight:600; color:#858585;" id="notificationDate9">31 Jan 2026</div>
+
+  </main>
+</div>
+
+</body>
+</html
