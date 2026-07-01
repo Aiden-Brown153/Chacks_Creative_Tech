@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Notifications</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* ==========================================
+   GLOBAL STYLES
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#1e1e1e;
+}
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar{
+    width:290px;
+    background:#233D69;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    padding:30px 20px;
+}
+
+/* ==========================================
+   LOGO SECTION
+========================================== */
+
+.logo-container{
+    text-align:center;
+}
+
+.logo-box{
+    width:120px;
+    height:120px;
+    border:2px dashed rgba(255,255,255,.7);
+    border-radius:15px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+}
+
+.system-title{
+    margin-top:20px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* ==========================================
+   NAVIGATION MENU
+========================================== */
+
+.nav-menu{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+/* ADD DASHBOARD PAGE LINK HERE */
+.nav-menu a{
+    color:white;
+    text-decoration:none;
+    padding:16px 18px;
+    border-radius:12px;
+    font-size:18px;
+}
+
+/* ACTIVE PAGE */
+
+.nav-menu a.active{
+    background:#D97D24;
+}
+
+.nav-menu a:hover{
+    background:rgba(255,255,255,.08);
+}
+
+/* ==========================================
+   PROFILE SECTION
+========================================== */
+
+.profile-section{
+    margin-top:auto;
+    text-align:center;
+    padding-top:50px;
+}
+
+.profile-section a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+/* ==========================================
+   CONTENT AREA
+========================================== */
+
+.content{
+    flex:1;
+    background:#D97D24;
+    padding:30px;
+}
+
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+.page-title{
+    font-size:42px;
+    font-weight:bold;
+    margin-bottom:30px;
+    color:black;
+}
+
+/* ==========================================
+   NOTIFICATIONS PANEL
+========================================== */
+
+.notifications-panel{
+    background:#E7E7E7;
+    border-radius:30px;
+    padding:25px;
+    min-height:750px;
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+/* ==========================================
+   NOTIFICATION CARD
+========================================== */
+
+.notification{
+    background:#F5F5F5;
+    border:3px solid #BDBDBD;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:18px;
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+/* ==========================================
+   ICONS
+========================================== */
+
+.icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:24px;
+    flex-shrink:0;
+}
+
+.danger{
+    background:#F44336;
+}
+
+.info{
+    background:#1565FF;
+}
+
+.warning{
+    background:#FF0000;
+}
+
+.success{
+    background:#B8D91F;
+}
+
+/* ==========================================
+   MESSAGE CONTENT
+========================================== */
+
+.message{
+    flex:1;
+    font-size:24px;
+    font-weight:600;
+}
+
+.highlight{
+    color:#1E88FF;
+}
+
+.date{
+    font-size:14px;
+    color:#777;
+    align-self:flex-end;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .message{
+        font-size:18px;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- ==========================================
+     DASHBOARD LAYOUT
+========================================== -->
+
+<div class="dashboard">
+
+```
+<!-- ==========================================
+     SIDEBAR
+========================================== -->
+
+<aside class="sidebar">
+
+    <!-- ==========================================
+         LOGO SECTION
+    ========================================== -->
+
+    <div class="logo-container">
+
+        <div class="logo-box">
+            LOGO
+        </div>
+
+        <div class="system-title">
+            G-Leave
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         NAVIGATION MENU
+    ========================================== -->
+
+    <nav class="nav-menu">
+
+        <!-- ADD DASHBOARD PAGE LINK HERE -->
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <!-- ADD APPROVE ACCOUNTS PAGE LINK HERE -->
+        <a href="approve-accounts.html">
+            Approve Accounts
+        </a>
+
+        <!-- ADD LEAVE REQUESTS PAGE LINK HERE -->
+        <a href="leave-requests.html">
+            Leave Requests
+        </a>
+
+        <!-- ADD EMPLOYEE RECORDS PAGE LINK HERE -->
+        <a href="employee-records.html">
+            Employee Records
+        </a>
+
+        <!-- ADD REPORTS PAGE LINK HERE -->
+        <a href="reports.html">
+            Reports
+        </a>
+
+        <!-- CURRENT PAGE -->
+        <a href="notifications.html" class="active">
+            Notifications
+        </a>
+
+    </nav>
+
+    <!-- ==========================================
+         PROFILE LINK
+    ========================================== -->
+
+    <div class="profile-section">
+
+        <!-- ADD PROFILE PAGE LINK HERE -->
+        <a href="profile.html">
+            My Profile
+        </a>
+
+    </div>
+
+</aside>
+
+<!-- ==========================================
+     MAIN CONTENT
+========================================== -->
+
+<main class="content">
+
+    <!-- PAGE TITLE -->
+
+    <h1 class="page-title">
+        HR Notifications
+    </h1>
+
+    <!-- ==========================================
+         NOTIFICATIONS PANEL
+    ========================================== -->
+
+    <section class="notifications-panel">
+
+        <!-- Notification 1 -->
+
+        <div class="notification">
+
+            <div class="icon danger">
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div class="message">
+                Leave application from
+                <span class="highlight">
+                    10/02-26/02
+                </span>
+                has been denied...
+            </div>
+
+            <div class="date">
+                05 Feb 2026
+            </div>
+
+        </div>
+
+        <!-- Notification 2 -->
+
+        <div class="notification">
+
+            <div class="icon info">
+                <i class="fas fa-comment"></i>
+            </div>
+
+            <div class="message">
+                Meeting Reminder.
+                Meeting with Spongebob at
+                <span class="highlight">
+                    10:20
+                </span>
+            </div>
+
+            <div class="date">
+                05 Feb 2026
+            </div>
+
+        </div>
+
+        <!-- Notification 3 -->
+
+        <div class="notification">
+
+            <div class="icon warning">
+                <i class="fas fa-exclamation"></i>
+            </div>
+
+            <div class="message">
+                WARNING! 10 leave requests pending
+            </div>
+
+            <div class="date">
+                01 Feb 2026
+            </div>
+
+        </div>
+
+        <!-- Notification 4 -->
+
+        <div class="notification">
+
+            <div class="icon success">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <div class="message">
+                Medical Documentation for
+                <span class="highlight">
+                    02/02-03/02
+                </span>
+                has been submitted.
+            </div>
+
+            <div class="date">
+                31 Jan 2026
+            </div>
+
+        </div>
+
+        <!-- Notification 5 -->
+
+        <div class="notification">
+
+            <div class="icon success">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <div class="message">
+                3 People are on leave
+            </div>
+
+            <div class="date">
+                31 Jan 2026
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+```
+
+</div>
+
+</body>
+</html>

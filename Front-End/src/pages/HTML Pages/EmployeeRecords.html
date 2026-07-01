@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Records</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#1f1f1f;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:260px;
+    background:#233B66;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+}
+
+.logo-section{
+    margin-bottom:30px;
+}
+
+/* PLACE COMPANY LOGO HERE */
+.logo-section img{
+    width:180px;
+}
+
+.logo-line{
+    height:5px;
+    background:white;
+    margin-top:15px;
+}
+
+.menu{
+    margin-top:20px;
+}
+
+.menu a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    margin-bottom:8px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    background:#D87517;
+}
+
+.menu .active{
+    background:#D87517;
+}
+
+.profile-spacer{
+    flex:1;
+}
+
+.profile-line{
+    height:5px;
+    background:white;
+    margin-bottom:20px;
+}
+
+/* PROFILE SECTION */
+.profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* PLACE USER PROFILE IMAGE HERE */
+.profile img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.content{
+    flex:1;
+    padding:25px;
+    background:linear-gradient(
+    180deg,
+    #F28C18,
+    #C85600
+    );
+}
+
+.page-title{
+    font-size:50px;
+    font-weight:bold;
+    color:white;
+    text-shadow:
+        -2px -2px 0 #23406F,
+         2px -2px 0 #23406F,
+        -2px  2px 0 #23406F,
+         2px  2px 0 #23406F;
+    margin-bottom:20px;
+}
+
+/* =========================
+   FILTER SECTION
+========================= */
+
+.filter-card{
+    background:#f3f3f3;
+    border-radius:15px;
+    padding:15px;
+    display:flex;
+    gap:10px;
+    align-items:end;
+    margin-bottom:20px;
+}
+
+.filter-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.filter-group label{
+    margin-bottom:5px;
+    font-size:12px;
+}
+
+.filter-group input,
+.filter-group select{
+    padding:10px;
+    border-radius:20px;
+    border:1px solid #aaa;
+}
+
+.filter-btn{
+    background:#23406F;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.clear-btn{
+    background:#ddd;
+    border:none;
+    padding:10px 18px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* =========================
+   EMPLOYEE CARD
+========================= */
+
+.employee-card{
+    background:#f3f3f3;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.employee-header{
+    color:#D87517;
+    font-size:30px;
+    font-weight:bold;
+    padding:20px;
+}
+
+.employee-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.employee-table th{
+    background:#D1D1D1;
+    padding:15px;
+    text-align:left;
+}
+
+.employee-table td{
+    padding:15px;
+    border-bottom:1px solid #cfcfcf;
+}
+
+.employee-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* EMPLOYEE IMAGE */
+.employee-info img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.employee-info strong{
+    display:block;
+}
+
+.employee-info small{
+    color:gray;
+}
+
+.status{
+    padding:8px 18px;
+    border-radius:20px;
+    color:white;
+    font-weight:bold;
+    font-size:12px;
+}
+
+.active-status{
+    background:#6CBF3F;
+}
+
+.leave-status{
+    background:#D6A53D;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <!-- COMPANY LOGO -->
+        <div class="logo-section">
+
+            <!-- PLACE COMPANY LOGO IMAGE HERE -->
+            <img src="logo.png" alt="Company Logo">
+
+            <div class="logo-line"></div>
+
+        </div>
+
+        <!-- MENU -->
+        <div class="menu">
+
+            <a href="#">🏠 Dashboard</a>
+
+            <a href="#">✔ Approve Accounts</a>
+
+            <a href="#">📄 Review Leave Requests</a>
+
+            <a href="#" class="active">👤 Employee Records</a>
+
+            <a href="#">📊 Reports</a>
+
+        </div>
+
+        <div class="profile-spacer"></div>
+
+        <div class="profile-line"></div>
+
+        <!-- PROFILE -->
+        <div class="profile">
+
+            <!-- PLACE USER PROFILE IMAGE HERE -->
+            <img src="profile.jpg" alt="Profile">
+
+            <strong>My Profile</strong>
+
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <h1 class="page-title">Employee Records</h1>
+
+        <!-- FILTER SECTION -->
+        <div class="filter-card">
+
+            <div class="filter-group">
+                <label>Search Employee</label>
+                <input type="text" placeholder="Search Employee No. Name / Surname">
+            </div>
+
+            <div class="filter-group">
+                <label>Department</label>
+                <select>
+                    <option>All Department</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Job Title</label>
+                <select>
+                    <option>All Job Titles</option>
+                </select>
+            </div>
+
+            <button class="filter-btn">Filter</button>
+
+            <button class="clear-btn">Clear All</button>
+
+        </div>
+
+        <!-- EMPLOYEE LIST -->
+        <div class="employee-card">
+
+            <div class="employee-header">
+                Employee List (200)
+            </div>
+
+            <table class="employee-table">
+
+                <thead>
+                    <tr>
+                        <th>Employee No.</th>
+                        <th>Employee Full Names</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>EMP1110</td>
+
+                        <td>
+                            <div class="employee-info">
+
+                                <!-- EMPLOYEE IMAGE HERE -->
+                                <img src="employee1.jpg" alt="Employee">
+
+                                <div>
+                                    <strong>Spongebob Squarepants</strong>
+                                    <small>spongebobsquarepants@bikinibottom.com</small>
+                                </div>
+
+                            </div>
+                        </td>
+
+                        <td>Kitchen</td>
+
+                        <td>
+                            <span class="status active-status">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>EMP1298</td>
+
+                        <td>
+                            <div class="employee-info">
+
+                                <!-- EMPLOYEE IMAGE HERE -->
+                                <img src="employee2.jpg" alt="Employee">
+
+                                <div>
+                                    <strong>Squidward Tentacles</strong>
+                                    <small>squidward@bikinibottom.com</small>
+                                </div>
+
+                            </div>
+                        </td>
+
+                        <td>Cash Register</td>
+
+                        <td>
+                            <span class="status active-status">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>EMP0001</td>
+
+                        <td>
+                            <div class="employee-info">
+
+                                <!-- EMPLOYEE IMAGE HERE -->
+                                <img src="employee3.jpg" alt="Employee">
+
+                                <div>
+                                    <strong>Patrick Star</strong>
+                                    <small>patrick@bikinibottom.com</small>
+                                </div>
+
+                            </div>
+                        </td>
+
+                        <td>Food Sampling</td>
+
+                        <td>
+                            <span class="status leave-status">
+                                On Leave
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>EMP3003</td>
+
+                        <td>
+                            <div class="employee-info">
+
+                                <!-- EMPLOYEE IMAGE HERE -->
+                                <img src="employee4.jpg" alt="Employee">
+
+                                <div>
+                                    <strong>Sandy Cheeks</strong>
+                                    <small>sandy@bikinibottom.com</small>
+                                </div>
+
+                            </div>
+                        </td>
+
+                        <td>Repairs</td>
+
+                        <td>
+                            <span class="status active-status">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>EMP6769</td>
+
+                        <td>
+                            <div class="employee-info">
+
+                                <!-- EMPLOYEE IMAGE HERE -->
+                                <img src="employee5.jpg" alt="Employee">
+
+                                <div>
+                                    <strong>Bubble Bass</strong>
+                                    <small>bubblebass@bikinibottom.com</small>
+                                </div>
+
+                            </div>
+                        </td>
+
+                        <td>Food Sampling</td>
+
+                        <td>
+                            <span class="status leave-status">
+                                On Leave
+                            </span>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
